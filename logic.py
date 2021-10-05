@@ -250,3 +250,33 @@ def move_right(grid):
  
     # return new matrix 
     return new_grid
+
+# function to update the matrix
+# if we move / swipe up
+def move_up(grid):
+ 
+    # to move up we just take
+    # transpose of matrix to make it similar to left
+    new_grid = transpose(grid)
+ 
+    # then move left (calling all
+    # included functions) then
+    new_grid = move_left(new_grid)
+ 
+    # again take transpose so that we can obtain original matrix.
+    new_grid = transpose(new_grid)
+    return new_grid
+ 
+# function to update the matrix
+# if we move / swipe down
+def move_down(grid):
+ 
+    # to move down we take transpose to make it similar to right
+    new_grid = transpose(grid)
+ 
+    # then move right 
+    new_grid = move_right(new_grid)
+ 
+    # again take transpose so that we can obtain original matrix.
+    new_grid = transpose(new_grid)
+    return new_grid
