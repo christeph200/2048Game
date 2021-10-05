@@ -86,3 +86,80 @@ def get_current_state(mat):
  
     # else we have lost the game
     return 'LOST'
+
+
+# function to compress the grid
+# after every step before and
+# after merging cells in case of left.
+def compress_left(mat):
+    # empty grid
+    new_mat = []
+ 
+    # intitalise with zero
+    for i in range(4):
+        new_mat.append([0] * 4)
+         
+    # here we will shift entries
+    # of each cell to it's extreme
+    # left row by row
+    for i in range(4):
+        pos = 0 # to keep track of previous empty cell
+ 
+        # loop to traverse each column
+        # in respective row
+        for j in range(4):
+            if(mat[i][j] != 0): # Check whether the current cell is empty or not
+                 
+                # if cell is non empty then
+                # we will shift it's value to
+                # previous empty cell in that row
+                # denoted by pos variable
+                new_mat[i][pos] = mat[i][j]
+                 
+                
+                    
+                pos += 1 # incrementing to next empty value
+ 
+    # returning new compressed matrix
+    return new_mat
+
+# function to compress the grid
+# after every step before and
+# after merging cells in case of right.
+def compress_right(mat):
+ 
+    # bool variable to determine
+    # any change happened or not
+ 
+    # empty grid
+    new_mat = []
+ 
+    # intitalise with zero
+    for i in range(4):
+        new_mat.append([0] * 4)
+         
+    # here we will shift entries
+    # of each cell to it's extreme
+    # right row by row
+    
+    for i in range(4):
+        pos = 3
+ 
+        # loop to traverse each column
+        # in respective row
+        for j in range(3,-1,-1): #starting from the end of row as here we deal with right shifting
+            if(mat[i][j] != 0):
+                 
+                # if cell is non empty then
+                # we will shift it's value to
+                # previous empty cell in that row
+                # denoted by pos variable
+                new_mat[i][pos] = mat[i][j]
+                 
+                
+                    
+                pos -= 1 # decrementing to next empty value
+ 
+    # returning new compressed matrix
+    
+    return new_mat
