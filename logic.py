@@ -163,3 +163,53 @@ def compress_right(mat):
     # returning new compressed matrix
     
     return new_mat
+
+
+def merge_left(mat):
+     
+    
+     
+    for i in range(4):
+        for j in range(3):
+ 
+            # if current cell has same value as
+            # next cell in the row and they
+            # are non empty then
+            if(mat[i][j] == mat[i][j + 1] and mat[i][j] != 0):
+ 
+                # double current cell value and
+                # empty the next cell
+                mat[i][j] = mat[i][j] * 2
+                mat[i][j + 1] = 0
+    return mat
+
+# function to merge/add the cells
+# in matrix after compressing in case of right
+def merge_right(mat):
+     
+    for i in range(4):
+        for j in range(3,0,-1): # start from right
+ 
+            # if current cell has same value as
+            # next cell in the row and they
+            # are non empty then
+            if(mat[i][j] == mat[i][j - 1] and mat[i][j] != 0):
+ 
+                # double current cell value and
+                # empty the next cell
+                mat[i][j] = mat[i][j] * 2
+                mat[i][j - 1] = 0
+                
+ 
+    return mat
+
+ 
+# function to get the transpose
+# of matrix 
+def transpose(mat):
+    new_mat = []
+    for i in range(4):
+        new_mat.append([])
+        for j in range(4):
+            new_mat[i].append(mat[j][i])
+    return new_mat
