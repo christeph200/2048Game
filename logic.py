@@ -213,3 +213,40 @@ def transpose(mat):
         for j in range(4):
             new_mat[i].append(mat[j][i])
     return new_mat
+
+
+# function to update the matrix
+# if we move / swipe left
+def move_left(grid):
+ 
+    # first compress the grid
+    new_grid = compress_left(grid)
+ 
+    # then merge the cells.
+    new_grid = merge_left(new_grid)
+     
+    
+ 
+    # again compress after merging.This is done to ensure after addition every element comes to left
+    new_grid = compress_left(new_grid)
+ 
+    # return new matrix 
+    return new_grid
+ 
+# function to update the matrix
+# if we move / swipe right
+def move_right(grid):
+ 
+    # first compress the grid
+    new_grid = compress_right(grid)
+ 
+    # then merge the cells.
+    new_grid = merge_right(new_grid)
+     
+    
+ 
+    # again compress after merging.This is done to ensure after addition every element comes to right.
+    new_grid = compress_right(new_grid)
+ 
+    # return new matrix 
+    return new_grid
