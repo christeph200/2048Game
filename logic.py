@@ -191,12 +191,12 @@ def merge_right(mat):
         for j in range(3,0,-1): # start from right
  
             # if current cell has same value as
-            # next cell in the row and they
+            # previous cell in the row and they
             # are non empty then
             if(mat[i][j] == mat[i][j - 1] and mat[i][j] != 0):
  
                 # double current cell value and
-                # empty the next cell
+                # empty the previous cell
                 mat[i][j] = mat[i][j] * 2
                 mat[i][j - 1] = 0
                 
